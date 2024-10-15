@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src=" https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+    <!-- libreria de ambientes -->
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+  
+    <!-- LIBRERIAS DE COLISIONES Y FÍSICAS-->
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
+  
+    <!-- MOVIMIENTO DE LA CAMARA -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/super-hands@2.0.2/dist/super-hands.min.js"></script>
+  </head>
+  
+  <body>
+  
+    <!-- colocar  -- "debug: true" en physics para visualizar el tamaño de la solidez del objeto -->
+    <a-scene physics="gravity:0; debug: false">
+  
+      <a-entity movement-controls kinematic-body>
+    
+      <a-entity id="camera" camera position="0 2.5 0" look-controls 
+      light="intensity:1; type:point; penumbra:1.0"></a-entity>
+      </a-entity>
+  
+  
+      <a-assets>
+      <img id="maze" src="assets/maze.jpg" >
+      <img id="pared" src="assets/pared3.jpg">
+      <img id="tapete" src="assets/tapete.jpg">
+      <img id="techo" src="assets/techo.jpg">
+      <img id="kim1" src="assets/kim-01.jpg">
+      <img id="kim2" src="assets/kim-02.jpg">
+      
+      </a-assets>
+
+     
+      <!-- PAREDES -->
+      
+      <a-box src="#tapete" scale="100 0.1 100" rotation="0 90 0"  position="31.803 0.01 -30.96604" material=" repeat: 55 55"   ></a-box>
+      <a-box src="#techo" scale="100 0.1 100" rotation="0 90 0"  position="31.803 4.896 -30.96604" material=" repeat: 55 55"   ></a-box>
+
+      <!-- horizontales -->
+      <a-box src=#pared static-body position="28.561 2.4 -66.31039" scale="63.586 4.639 0.935"  material=" repeat: 20 1"></a-box>
+      <a-box src=#pared static-body position="31.771 2.4 7.4922" scale="69.908 4.639 0.935" material=" repeat: 20 1"  rotation="0 -0.01 0"></a-box>
+      <a-box src=#pared static-body position="35.513 2.4 3.171" scale="62.823 4.639 0.935" material=" repeat: 20 1"  rotation="0 -0.01 0"></a-box>
+      <a-box src=#pared static-body position="49.099 2.4 -17.880" scale="34.991 4.639 0.935" material=" repeat: 10 1"  rotation="0 -0.01 0"></a-box>
+      <a-box src=#pared static-body position="32.179 2.4 -3.623" scale="15.234 4.639 0.935" material=" repeat: 4 1"  rotation="0 -0.01 0"></a-box>
+      <a-box src=#pared static-body position="11.818 2.4 -31.163" scale="15.234 4.639 0.935" material=" repeat: 4 1"  rotation="0 -0.01 0"></a-box>
+      <a-box src=#pared static-body position="59.969 2.4 -24.653" scale="13.652 4.639 0.935" material=" repeat: 4 1"  rotation="0 -0.01 0"></a-box>
+      <a-box src=#pared static-body position="45.413 2.4 -31.236" scale="27.627 4.639 0.935" material=" repeat: 6 1"  rotation="0 -0.01 0"></a-box>
+      <a-box src=#pared static-body position="46.0868 2.4 -45.041" scale="15.234 4.639 0.935" material=" repeat: 4 1"  rotation="0 -0.01 0"></a-box>
+      <a-box src=#pared static-body position="49.327 2.4 -38.140" scale="20.686 4.639 0.935" material=" repeat: 6 1"  rotation="0 -0.01 0"></a-box>
+      <a-box src=#pared static-body position="28.600 2.4 -51.954" scale="20.686 4.639 0.935" material=" repeat: 6 1"  rotation="0 -0.01 0"></a-box>
+      <a-box src=#pared static-body position="25.167 2.4 -59.342" scale="15.234 4.639 0.935" material=" repeat: 4 1"  rotation="0 -0.01 0"></a-box>
+      <a-box src=#pared static-body position="14.792 2.4 -17.489" scale="21.746 4.639 0.935" material=" repeat: 6 1"  rotation="0 -0.01 0"></a-box>
+      <a-box src=#pared static-body position="14.792 2.4 -10.926" scale="21.746 4.639 0.935" material=" repeat: 6 1"  rotation="0 -0.01 0"></a-box>
+      <a-box src=#pared static-body position="21.584 2.4 -38.490" scale="21.746 4.639 0.935" material=" repeat: 6 1"  rotation="0 -0.01 0"></a-box>
+      <a-box src=#pared static-body position="38.869 2.4 -24.653" scale="14.399 4.639 0.935" material=" repeat: 4 1"  rotation="0 -0.01 0"></a-box>
+      <a-box src=#pared static-body position="11.393 2.4 -24.160" scale="27.627 4.639 0.935" material=" repeat: 6 1"  rotation="0 -0.01 0"></a-box>
+      <a-box src=#pared static-body position="49.314 2.4 -3.624" scale="8.013 4.639 0.935" material=" repeat: 2 1"  rotation="0 -0.01 0"></a-box>
+      <a-box src=#pared static-body position="56.399 2.4 -10.761" scale="8.013 4.639 0.935" material=" repeat: 2 1"  rotation="0 -0.01 0"></a-box>
+      <a-box src=#pared static-body position="1.500 2.4 -38.241" scale="8.013 4.639 0.935" material=" repeat: 2 1"  rotation="0 -0.01 0"></a-box>
+      <a-box src=#pared static-body position="7.208 2.4 -59.193" scale="8.013 4.639 0.935" material=" repeat: 2 1"  rotation="0 -0.01 0"></a-box>
+      <a-box src=#pared static-body position="42.606 2.4 -59.193" scale="8.013 4.639 0.935" material=" repeat: 2 1"  rotation="0 -0.01 0"></a-box>
+      <a-box src=#pared static-body position="63.027 2.4 -59.193" scale="8.013 4.639 0.935" material=" repeat: 2 1"  rotation="0 -0.01 0"></a-box>
+
+
+      <!-- verticales -->
+      <a-box src=#pared static-body  position="-2.628 2.4 -31.838" scale="69.984 4.639 0.935" rotation="0 90 0"  material=" repeat: 20 1"></a-box>    
+      <a-box src=#pared static-body position="66.524 2.4 -29.42547" scale="74.21828 4.639 0.935" rotation="0 90 0"  material=" repeat: 20 1"></a-box>    
+      <a-box src=#pared static-body position="60.099 2.4 -4.119" scale="14.356 4.639 0.935" rotation="0 90 0"  material=" repeat: 4 1"></a-box>    
+      <a-box src=#pared static-body position="45.603 2.4 -10.175" scale="14.356 4.639 0.935" rotation="0 90 0"  material=" repeat: 4 1"></a-box>    
+      <a-box src=#pared static-body position="38.584 2.4 -44.916" scale="14.356 4.639 0.935" rotation="0 90 0"  material=" repeat: 4 1"></a-box>    
+      <a-box src=#pared static-body position="17.821 2.4 -52.709" scale="14.356 4.639 0.935" rotation="0 90 0"  material=" repeat: 4 1"></a-box>    
+      <a-box src=#pared static-body position="4.978 2.4 -45.874" scale="14.356 4.639 0.935" rotation="0 90 0"  material=" repeat: 4 1"></a-box>    
+      <a-box src=#pared static-body position="53.504 2.4 -52.709" scale="14.356 4.639 0.935" rotation="0 90 0"  material=" repeat: 4 1"></a-box>    
+      <a-box src=#pared static-body position="31.952 2.4 -14.645" scale="20.882 4.639 0.935" rotation="0 90 0"  material=" repeat: 6 1"></a-box>    
+      <a-box src=#pared static-body position="59.507 2.4 -48.577" scale="21.742 4.639 0.935" rotation="0 90 0"  material=" repeat: 6 1"></a-box>    
+      <a-box src=#pared static-body position="11.019 2.4 -51.919" scale="28.075 4.639 0.935" rotation="0 90 0"  material=" repeat: 10 1"></a-box>    
+      <a-box src=#pared static-body position="4.485 2.4 -0.540" scale="8.322 4.639 0.935" rotation="0 90 0"  material=" repeat: 2 1"></a-box>    
+      <a-box src=#pared static-body position="18.246 2.4 -0.540" scale="8.322 4.639 0.935" rotation="0 90 0"  material=" repeat: 2 1"></a-box>    
+      <a-box src=#pared static-body position="39.059 2.4 -14.048" scale="8.322 4.639 0.935" rotation="0 90 0"  material=" repeat: 2 1"></a-box>    
+      <a-box src=#pared static-body position="4.397 2.4 -14.103" scale="7.052 4.639 0.935" rotation="0 90 0"  material=" repeat: 2 1"></a-box>    
+      <a-box src=#pared static-body position="11.334 2.4 -7.015" scale="7.052 4.639 0.935" rotation="0 90 0"  material=" repeat: 2 1"></a-box>    
+      <a-box src=#pared static-body position="25.137 2.4 -7.015" scale="7.052 4.639 0.935" rotation="0 90 0"  material=" repeat: 2 1"></a-box>    
+      <a-box src=#pared static-body position="24.933 2.4 -27.935" scale="8.322 4.639 0.935" rotation="0 90 0"  material=" repeat: 2 1"></a-box>    
+      <a-box src=#pared static-body position="18.983 2.4 -34.758" scale="7.052 4.639 0.935" rotation="0 90 0"  material=" repeat: 2 1"></a-box>    
+      <a-box src=#pared static-body position="31.996 2.4 -34.758" scale="7.052 4.639 0.935" rotation="0 90 0"  material=" repeat: 2 1"></a-box>    
+      <a-box src=#pared static-body position="25.380 2.4 -41.698" scale="7.052 4.639 0.935" rotation="0 90 0"  material=" repeat: 2 1"></a-box>    
+      <a-box src=#pared static-body position="46.006 2.4 -27.978" scale="7.052 4.639 0.935" rotation="0 90 0"  material=" repeat: 2 1"></a-box>    
+      <a-box src=#pared static-body position="32.406 2.4 -48.890" scale="7.052 4.639 0.935" rotation="0 90 0"  material=" repeat: 2 1"></a-box>    
+      <a-box src=#pared static-body position="38.615 2.4 -62.301" scale="7.052 4.639 0.935" rotation="0 90 0"  material=" repeat: 2 1"></a-box>    
+      <a-box src=#pared static-body position="46.672 2.4 -55.440" scale="8.013 4.639 0.935" rotation="0 90 0"  material=" repeat: 2 1"></a-box>    
+  
+  
+      <!-- OBJETOS--> 
+
+<a-box src="#kim1" position="4.873 2.802 -15.171" scale="1.187 1.469 0.084" rotation="0 90 0 "></a-box>
+<a-box src="#kim2" position="4.930 2.802 -13.554" scale="1.187 1.469 0.084" rotation="0 90 0"></a-box>
+
+      <!-- ILUMINACIÓN--> 
+     
+      <!--<a-entity light="intensity:0.8; type:ambient;"></a-entity>-->
+      
+  
+    
+  
+    </a-scene>
+</body>
+</html>
